@@ -1,0 +1,20 @@
+{
+  "contact1": {
+    "firstName": "Siya",
+    "lastName": "Maskey",
+    "birthdate": "1998-05-10",
+    "email": "siya.maskey@example.com",
+    "phone": "9800000001",
+    "street1": "Baneshwor",
+    "city": "Kathmandu"
+  },
+  "contact2": {
+    "firstName": "John",
+    "lastName": "Rai",
+    "birthdate": "1995-08-15",
+    "email": "john.rai@example.com",
+    "phone": "9800000002",
+    "street1": "Lalitpur",
+    "city": "Patan"
+  }
+}
