@@ -1,15 +1,15 @@
-name: playwright Tests
+name: Playwright Tests
 on:
   push:
-    branches: [ master ]
+    branches: [main]
   pull_request:
-    branches: [ master ]
+    branches: [main]
   schedule:
-    - cron: '30 1 * * 1-5' # 30 minutes past 1am (UTC) from Monday to Friday
+    - cron: '30 1 * * 1-5'
   workflow_dispatch:
 
 jobs:
-  tests:
+  test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
@@ -17,9 +17,13 @@ jobs:
       - uses: actions/setup-node@v4
       - name: Install dependencies
         run: npm ci
-      - name: install playwright browsers
+      - name: Run Playwright Browers
         run: npx playwright install --with-deps
-      - name: run playwright tests
-        run: npm playwright test --project=chromium 
-
-
+      - name: Run Playwright Tests
+        run: npx playwright test
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 30
